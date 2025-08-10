@@ -1,0 +1,31 @@
+{
+  "interface": "eth0",
+  "serverIp": "myipucunt",
+  "serverPort": "8080",
+  "discord": {
+    "webhookUrl": "https://discord.com/api/webhooks/1332756416758419506/idfZLYDw9xWSm4AfStoxHBzVVWiRVGZOKUfvAWGJdhJvr8fbJpTxc7lAoQyVPurCFxtR",
+    "messageTemplate": {
+      "title": "🚨 Attack Alert: Malicious Traffic Detected",
+      "image": "https://example.com/alert-image.png"
+    }
+  },
+  "thresholds": {
+    "SYN": 50,
+    "UDP": 100,
+    "ICMP": 30,
+    "TCP": 80,
+    "DNS": 40,
+    "NTP": 20,
+    "SSH": 15,
+    "MB": 10,
+    "GRE": 25,
+    "ESP": 25
+  },
+  "whitelistedIps": [
+    "89.22.199.60",
+    "192.168.1.101",
+    "45.90.12.33",
+    "45.137.198.66"
+  ]
+}
+

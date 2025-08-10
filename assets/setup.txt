@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Update and upgrade system packages
+sudo apt update -y && sudo apt upgrade -y
+
+# Install required Linux dependencies
+sudo apt install -y tshark iptables npm curl git screen nload net-tools
+
+# Ensure tshark can be run as non-root (optional)
+sudo dpkg-reconfigure wireshark-common
+sudo usermod -aG wireshark $USER
+
+# Install Node.js (if not already installed)
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt install -y nodejs
+
+# Install global npm dependencies (optional, depending on your needs)
+sudo npm install -g pm2
+
+# Install project-specific dependencies
+npm install axios
+npm i rate-limiter-flexible
