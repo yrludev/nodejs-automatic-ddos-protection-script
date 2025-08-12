@@ -1,22 +1,33 @@
 #!/bin/bash
 
-# Update and upgrade system packages
+# =============================
+# Node.js DDoS Protection Script Setup
+# =============================
+
+# 1. Update and upgrade system packages
 sudo apt update -y && sudo apt upgrade -y
 
-# Install required Linux dependencies
-sudo apt install -y tshark iptables npm curl git screen nload net-tools
+# 2. Install required Linux dependencies
+sudo apt install -y \
+	tshark \
+	iptables \
+	npm \
+	curl \
+	git \
+	screen \
+	nload \
+	net-tools
 
-# Ensure tshark can be run as non-root (optional)
+# 3. (Optional) Allow tshark to run as non-root
 sudo dpkg-reconfigure wireshark-common
 sudo usermod -aG wireshark $USER
 
-# Install Node.js (if not already installed)
+# 4. Install Node.js (if not already installed)
 curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt install -y nodejs
 
-# Install global npm dependencies (optional, depending on your needs)
+# 5. (Optional) Install global npm dependencies
 sudo npm install -g pm2
 
-# Install project-specific dependencies
-npm install axios
-npm i rate-limiter-flexible
+# 6. Install project-specific dependencies
+npm install axios rate-limiter-flexible
